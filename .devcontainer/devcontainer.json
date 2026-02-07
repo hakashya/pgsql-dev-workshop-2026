@@ -1,0 +1,27 @@
+{
+    "name": "PostgreSQL Dev Workshop 2026",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": "."
+    },
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "bash"
+            },
+            "extensions": [
+                "ms-vscode.cpptools",
+                "ms-vscode.cpptools-extension-pack",
+                "ms-vscode.cmake-tools"
+            ]
+        }
+    },
+    "remoteUser": "vscode",
+    "workspaceFolder": "/workspace",
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+    "mounts": [
+        "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+    ],
+    "postCreateCommand": "gcc --version && g++ --version && make --version && cmake --version",
+    "features": {}
+}
